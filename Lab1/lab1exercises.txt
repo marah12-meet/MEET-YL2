@@ -1,0 +1,7 @@
+1) 	a- I wrote python manage.py syncdb and then python manage.py runserver. I went to the URL https://github.com/
+	b-http://127.0.0.1:8000/movies/1/
+http://127.0.0.1:8000/movies/2/
+http://127.0.0.1:8000/movies/100
+	
+
+	
