@@ -1,0 +1,34 @@
+<!-- we are using a base template here -->
+{% extends 'movies/base.html' %}
+
+<!-- anything inside the block here are specific to this page -->
+{% block headers %}
+	<!-- importing the movies_list.css stylesheet using the STATIC_URL tag -->
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/movies_list.css">
+{% endblock %}
+
+{% block content %}
+
+<!-- checking if the variable movies_list is not empty -->
+{% if movies_list %}
+	List of all movies: 
+	<ul>
+	<!-- taking each movie in the movies_list one at a time -->
+	{% for movie in movies_list %}
+		<!-- link to each movie and display it's title -->
+		<!-- the id number is the unique number given by Django to each movie -->
+		<li><a href="/movies/{{ movie.id }}/">{{ movie.title }}</a></li>
+	{% endfor %}
+	</ul>
+{% else %}
+	<p>There are no movies yet. </p>
+{% endif %}
+
+<!-- a form for adding a movie -->
+Or add your own movie:<br>
+<form action="movies/addmovie" method="post">
+{% csrf_token %}
+Title: <input type="text" name="movie_title"><br>
+<input type="submit" value="Add">
+</form>
+{% endblock %}

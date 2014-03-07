@@ -1,0 +1,25 @@
+<!-- the base template to be used for all other HTML files. anything that is on this page will show up on every single page a base template is used with -->
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- always include the base stylesheet in all pages -->
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/base.css">
+
+    <!-- have a custom title on each page -->
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- include custom headers on each page -->
+    {% block headers %}
+    {% endblock %}
+</head>
+
+<body>
+	<!-- every page that uses this base will have this heading -->
+    <h1> My Personal Movie Database </h1>
+
+    <!-- include custom content on each page -->
+    {% block content %}
+
+    {% endblock %}
+</body>
+</html>
